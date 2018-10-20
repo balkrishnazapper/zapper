@@ -376,6 +376,9 @@
                             </div>
                         </div>
                 </div>
+                <div class="jumbotron">
+                    
+                </div>
             </form>
               
             
@@ -536,20 +539,38 @@ export default {
                 default:
                 var current 
                 var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+                alert(lastDay);
                 if(lastDay != date){
                      for (var i = 1; i < number_of_installments; i++) {
                             current = new Date(date.getFullYear(), date.getMonth()+1, date.getDate());
                             date = current;
                             var dd = current.getDate();
-                            var mm = current.getMonth();
+                            var mm = current.getMonth() + 1;
                             var y = current.getFullYear();
                             var someFormattedDate = mm + '-' + dd + '-' + y;
                             alert(someFormattedDate);
-
+                            idates.push(someFormattedDate);
                         
                     }
+                    return idates;
                 } else {
-                    alert('hi matched');
+                    
+                    var m =  date.getMonth();
+                    var y = date.getFullYear();
+                    var last_date = new Date(y,m+1,1);
+                    alert(last_date);
+                    /*for (var i = 1; i < number_of_installments; i++) {
+                          date.setMonth(date.setMonth() + 1);
+                        current = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+                        date = current;
+                        var dd = date.getDate();
+                        var mm = date.getMonth() + 1;
+                        var y = date.getFullYear();
+                        var someFormattedDate = mm + '-' + dd + '-' + y;
+                        alert(someFormattedDate);
+                        idates.push(someFormattedDate);
+
+                    }*/
                 }
                 return false;
 
